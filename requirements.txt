@@ -1,6 +1,6 @@
 # Core
 numpy>=1.23,<2.0
-scipy>=1.9,<1.12
+scipy>=1.9
 pandas>=1.5
 
 # Retrieval
