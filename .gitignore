@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+.env
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# Project Specific
+runs_txt/
+.gemini/
+
+# OS
+.DS_Store
+Thumbs.db

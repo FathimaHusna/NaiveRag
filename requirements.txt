@@ -1,0 +1,18 @@
+# Core
+numpy>=1.23,<2.0
+scipy>=1.9,<1.12
+pandas>=1.5
+
+# Retrieval
+faiss-cpu>=1.7.4
+
+# Embeddings
+sentence-transformers>=2.2.2
+torch>=1.13
+
+# Dataset
+datasets>=2.14.0
+
+# Utils
+tqdm>=4.65
+streamlit
