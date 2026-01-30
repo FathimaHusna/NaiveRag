@@ -1,0 +1,44 @@
+[
+  {
+    "id": "q1_host",
+    "query": "Who is hosting the ICC Men’s T20 World Cup 2026?",
+    "expected_answer": "India and Sri Lanka.",
+    "gold_chunk_substring": "The tournament will be co-hosted by India and Sri Lanka"
+  },
+  {
+    "id": "q2_start_date",
+    "query": "When does the T20 World Cup 2026 start?",
+    "expected_answer": "February 7, 2026.",
+    "gold_chunk_substring": "scheduled to begin on February 7, 2026"
+  },
+  {
+    "id": "q3_replacement",
+    "query": "Which team replaced Bangladesh in the tournament?",
+    "expected_answer": "Scotland.",
+    "gold_chunk_substring": "Bangladesh was replaced by Scotland"
+  },
+  {
+    "id": "q4_reason",
+    "query": "Why was Bangladesh replaced?",
+    "expected_answer": "Refusal to play in India due to security concerns.",
+    "gold_chunk_substring": "due to security concerns"
+  },
+  {
+    "id": "q5_multi_hop_fail",
+    "query": "Which group is the team that replaced Bangladesh in?",
+    "expected_answer": "Group C.",
+    "gold_chunk_substring": "Scotland was added to Group C"
+  },
+  {
+    "id": "q6_captain",
+    "query": "Who is the new captain of Australia’s women’s team?",
+    "expected_answer": "Sophie Molineux.",
+    "gold_chunk_substring": "Sophie Molineux has been appointed as the new captain"
+  },
+  {
+    "id": "q7_england_squad",
+    "query": "Who did England add to their squad recently?",
+    "expected_answer": "Jofra Archer.",
+    "gold_chunk_substring": "England added fast bowler Jofra Archer"
+  }
+]
