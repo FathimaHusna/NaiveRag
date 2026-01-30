@@ -120,7 +120,7 @@ with st.sidebar:
 
     if st.button("Re-Index Knowledge Base"):
         st.session_state.rag_system = None
-        st.experimental_rerun()
+        st.rerun()
 
 # Initialize RAG System
 if "rag_system" not in st.session_state or st.session_state.rag_system is None:
