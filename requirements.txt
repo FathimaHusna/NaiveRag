@@ -15,4 +15,5 @@ datasets>=2.14.0
 
 # Utils
 tqdm>=4.65
-streamlit
+streamlit>=1.35.0
+altair<5.0.0
