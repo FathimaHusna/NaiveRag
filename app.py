@@ -99,6 +99,17 @@ def dynamic_analysis(query, answer, retrieved_chunks):
 st.title("📉 The Physics of Failure: Naive RAG Demo")
 st.markdown("Interact with the ICC T20 World Cup 2026 dataset to observe common RAG failure modes.")
 
+import datetime
+
+# ... (CSS remains same)
+
+@st.cache_resource
+def get_rag_system(chunk_size, overlap):
+    rag = NaiveRAG()
+    docs = load_text_files("data")
+    rag.build_index(docs, chunk_size_words=chunk_size, overlap_words=overlap)
+    return rag, docs, datetime.datetime.now()
+
 # Sidebar Controls
 with st.sidebar:
     st.header("⚙️ Configuration")
@@ -108,35 +119,17 @@ with st.sidebar:
     
     st.divider()
     
-    st.header("🧪 Select Scenario")
-    scenario = st.radio(
-        "Choose a Failure Mode:",
-        [
-            "Multi-Hop Reasoning Gap",
-            "Extraction Error / Partial Context",
-            "Custom Query"
-        ]
-    )
-
-    if st.button("Re-Index Knowledge Base"):
-        st.session_state.rag_system = None
+    if st.button("🔄 Force Refresh Data", help="Clears cache and re-reads text files from disk"):
+        st.cache_resource.clear()
         st.rerun()
 
-# Initialize RAG System
-if "rag_system" not in st.session_state or st.session_state.rag_system is None:
-    with st.spinner("Building Index..."):
-        try:
-            rag = NaiveRAG()
-            docs = load_text_files("data")
-            rag.build_index(docs, chunk_size_words=chunk_size, overlap_words=overlap)
-            st.session_state.rag_system = rag
-            st.session_state.docs = docs
-            st.success("Index Built Successfully!")
-        except Exception as e:
-            st.error(f"Error building index: {e}")
-            st.stop()
+# Initialize RAG System (Automatic via caching)
+with st.spinner("Processing Knowledge Base..."):
+    rag, docs, last_indexed = get_rag_system(chunk_size, overlap)
 
-rag = st.session_state.rag_system
+st.sidebar.caption(f"Last indexed: {last_indexed.strftime('%H:%M:%S')}")
+st.session_state.docs = docs # Still needed for the viewer
+
 
 # Main Content Area
 col1, col2 = st.columns([1, 1])
