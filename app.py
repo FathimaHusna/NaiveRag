@@ -123,6 +123,18 @@ with st.sidebar:
         st.cache_resource.clear()
         st.rerun()
 
+    st.divider()
+    
+    st.header("🧪 Select Scenario")
+    scenario = st.radio(
+        "Choose a Failure Mode:",
+        [
+            "Multi-Hop Reasoning Gap",
+            "Extraction Error / Partial Context",
+            "Custom Query"
+        ]
+    )
+
 # Initialize RAG System (Automatic via caching)
 with st.spinner("Processing Knowledge Base..."):
     rag, docs, last_indexed = get_rag_system(chunk_size, overlap)
